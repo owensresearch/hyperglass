@@ -90,6 +90,7 @@ class VyOSRoute(_VyOSBase):
 
         # TODO: somehow, get the actual VRF
         vrf = "default"
+        vrfs = ['default']
 
         routes = []
         for route in self.paths:
@@ -117,7 +118,7 @@ class VyOSRoute(_VyOSBase):
             )
 
         serialized = ParsedRoutes(
-            vrf=vrf, count=len(routes), routes=routes, winning_weight="high",
+            vrf=vrf, count=len(routes), routes=routes, winning_weight="high", vrfs=vrfs,
         )
 
         log.info("Serialized VyOS response: {}", serialized)
