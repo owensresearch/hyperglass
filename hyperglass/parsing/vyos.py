@@ -24,9 +24,9 @@ def parse_vyos(output: Sequence[str]) -> Dict:  # noqa: C901
             log.debug("Pre-parsed data: {}", data)
 
             # VyOS doesn't show VRF when default used
-            # vrf = list(data["vrfs"].keys())[0]
-            # routes = data["vrfs"][vrf]
-            routes = data
+            vrfs = ['default']
+            vrf = list(data["vrfs"].keys())[0]
+            routes = data["vrfs"][vrf]
 
             log.debug("Pre-validated data: {}", routes)
 
