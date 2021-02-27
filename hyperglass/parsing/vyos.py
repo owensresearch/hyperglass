@@ -23,12 +23,12 @@ def parse_vyos(output: Sequence[str]) -> Dict:  # noqa: C901
 
             log.debug("Pre-parsed data: {}", data)
 
-            vrf = list(data["vrfs"].keys())[0]
-            routes = data["vrfs"][vrf]
+            #vrf = list(data["vrfs"].keys())[0]
+            #routes = data["vrfs"][vrf]
 
             log.debug("Pre-validated data: {}", routes)
 
-            validated = VyOSRoute(**routes)
+            validated = VyOSRoute(**data)
             serialized = validated.serialize().export_dict()
 
             if i == 0:
